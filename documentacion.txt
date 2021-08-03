@@ -1,0 +1,68 @@
+El archivo __init__.py convierte en un modulo la carpeta del proyecto
+
+en el archivo settings es donde se colocan todas las configuracion
+
+en el archivo url se definen todas las url del proyecto
+
+el archivo wsgi permite tener un servidor del proyecto para realizar pruebas en local
+
+para ejecutar el servidor comando:  python manage.py runserver
+
+para crear un proyecto: django-admin startproject nombredelproyecto
+
+para crear una aplicacion se debe hacer en la carpeta del proyecto con el comando: python manage.py startapp nombredelaaplicacion
+
+para efectuar migraciones se realiza con el siguientecomando:
+python manage.py makemigrations
+python manage.py migrate crea las tablas en la BD
+
+___________________________________________________________
+
+para mostrar un mensaje en el navegador se debe hacer lo siguiente:
+
+crear el archivo views.py en el directorio de la app
+dentro del archivo views.py crear una funcion con el mensaje que se quiere mostrar
+luego en el archivo urls.py del proyecto se debe registrar la mencionada vista para visualizarla en el navegador
+
+
+proceso para renderizar temmplates
+
+en el archivo del proyecto se debe crear una carpeta con el nombre de templates y alli dentro crear los archivos html correspondientes
+
+
+en las paginas estaticas el contenido nunca cambia
+
+paginas dinamicas cambian segun las necesidades
+
+
+entre doble juego de llaves se pueden acceder a variables dentro de las vistas de la siguiente manera 
+
+{{ variables }}
+
+CONDICIONALES
+
+{% if condicion %}
+    codigo a ejecutar
+{% else %}
+    codigo a ejecutar
+{% endif %}
+
+BUCLES
+
+{% for elementos in objetoiterable %}
+    codigo a ejecutar
+{% endfor %}
+
+para trabajar con archivos estaticos se debe crear una carpeta con el nombre static y dentro de ella las carpetas con los archivos estaticos
+
+
+crear un super usuario:
+
+python manage.py createsuperuser
+se puede trabajar con el sistema de autenticacion y administracion de django
+
+----------------------------------------------------
+
+todos los formularios deben llevar el siguiente comando en su interior
+{% csrf_token %}
+permite evitar ataques de csrf
