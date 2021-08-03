@@ -1,12 +1,13 @@
 # from django.http import HttpResponse
 
+
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate#permite autenticar usuarios y conocer si este existe en la BD
 
 from django.contrib.auth import login,logout
 
 from django.contrib import messages
-
+from .forms import FormularioRegistro
 
 # def index(request):
 # #el parametro request es obligatorio
@@ -82,3 +83,13 @@ def cerrarsesion(request):
     messages.success(request,'Haz finalizado la sesión correctamente ')
     
     return redirect('login')
+
+
+def registro(request):
+    
+    formulario = FormularioRegistro()
+    
+    return render(request,'usuarios/registro.html',{
+        
+        'formulario':formulario
+    })
