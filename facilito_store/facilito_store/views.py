@@ -1,9 +1,11 @@
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate#permite autenticar usuarios y conocer si este existe en la BD
 
 from django.contrib.auth import login,logout
+
+from django.contrib import messages
 
 
 # def index(request):
@@ -59,13 +61,24 @@ def iniciodesesion(request):
         if user:
             login(request,user)#la funcion login recibe como parametros la peticion y el usuario
             
-            print('usuario autenticado')
-        else:
-            print('usuario no autenticado')
+            messages.success(request,'Bienvenido {}'.format(user.username))
+            #mediante esta instruccion podemos enviar un mensaje al cliente bien sea de confirmacion o de error
             
-        
+            return redirect ('inicio')#la funcion redirect permite redirigir a un template en particular
+        else:
+            messages.error(request,'Usuario no valido')
+            
     
     return render(request,'usuarios/login.html',{
         
         
     })
+
+
+def cerrarsesion(request):
+    
+    logout(request)#la funcion logout requiere como argumento la peticion que mantiene la sesion iniciada
+    
+    messages.success(request,'Haz finalizado la sesión correctamente ')
+    
+    return redirect('login')

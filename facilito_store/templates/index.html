@@ -13,8 +13,27 @@
 <body>
 
     <div class="container">
+        {% if messages %} <!--aca capturamos el mensaje generado desde la vista-->
+                
+        {% for mensaje in messages  %}
+            
+            <!-- {% if mensaje.tags == 'success' %} -->
+                <div class="alert {% if mensaje.tags == 'success' %} alert-success {% else %} alert-danger {% endif %}">
+                    <button type="button" class="close" data-dismiss='alert'>x</button>
+                    {{mensaje}}
+                </div>
+            <!-- {% else %} -->
+                <!-- <div class="alert alert-danger">
+                   {{mensaje}}
+                </div>
+            {% endif %} -->
+        
+        {% endfor %}
+            
+    {% endif %}
         <div class="row">
             <div class="col">
+                
                 <h1 class="text-uppercase">{{titulo}} Texto de Prueba </h1>
                 <ul class="list-group">
                     
@@ -41,9 +60,9 @@
                     
                 </ul>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <img src="{% static 'img/fondo2.jpeg' %}" class="img-fluid w-100" alt="">
-            </div>
+            </div> -->
         </div>
     </div>
 

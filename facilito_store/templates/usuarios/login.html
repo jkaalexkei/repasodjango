@@ -12,8 +12,32 @@
   </head>
   <body>
     <div class="container">
+        
+                    
+            {% if messages %} <!--aca capturamos el mensaje generado desde la vista-->
+                
+                {% for mensaje in messages  %}
+                    
+                    {% if mensaje.tags == 'success' %}
+                        <div class="alert-success">
+                            {{mensaje}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss='alert'>x</button>
+                            {{mensaje}}
+                        </div>
+                    {% endif %}
+                
+                {% endfor %}
+                    
+            {% endif %}
+            
         <div class="row">
             <div class="col">
+
+               
+
                 <h2>Login</h2>
 
                 <!-- formulario -->
