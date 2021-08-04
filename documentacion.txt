@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=Av7MKpB7gjM
+
 El archivo __init__.py convierte en un modulo la carpeta del proyecto
 
 en el archivo settings es donde se colocan todas las configuracion

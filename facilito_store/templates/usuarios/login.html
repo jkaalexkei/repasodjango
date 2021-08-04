@@ -17,9 +17,10 @@
             {% if messages %} <!--aca capturamos el mensaje generado desde la vista-->
                 
                 {% for mensaje in messages  %}
-                    
+                    <!-- el atributo tags permite verificar si el mensaje que se recibe es de exito o error -->
                     {% if mensaje.tags == 'success' %}
-                        <div class="alert-success">
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss='alert'>x</button>
                             {{mensaje}}
                         </div>
                     {% else %}

@@ -87,7 +87,16 @@ def cerrarsesion(request):
 
 def registro(request):
     
-    formulario = FormularioRegistro()
+    formulario = FormularioRegistro({
+        #si se quiere que la instancia del formulario se inicialice con valores por defecto se hace mediante un diccionario donde las claves del mismo es el nombre de los campos
+        
+        'username':'alexander',
+        'email':'jkaalexkei@gmail.com',
+        
+    })
+    
+    if request.method=='POST':
+        pass
     
     return render(request,'usuarios/registro.html',{
         
