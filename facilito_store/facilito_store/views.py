@@ -1,6 +1,7 @@
 # from django.http import HttpResponse
 
 
+from django import forms
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate#permite autenticar usuarios y conocer si este existe en la BD
 
@@ -87,13 +88,15 @@ def cerrarsesion(request):
 
 def registro(request):
     
-    formulario = FormularioRegistro({
-        #si se quiere que la instancia del formulario se inicialice con valores por defecto se hace mediante un diccionario donde las claves del mismo es el nombre de los campos
+    # formulario = FormularioRegistro({
+    #     #si se quiere que la instancia del formulario se inicialice con valores por defecto se hace mediante un diccionario donde las claves del mismo es el nombre de los campos
         
-        'username':'alexander',
-        'email':'jkaalexkei@gmail.com',
+    #     'username':'alexander',
+    #     'email':'jkaalexkei@gmail.com',
         
-    })
+    # })
+    
+    formulario = FormularioRegistro(request.POST or None)
     
     if request.method=='POST':
         pass
